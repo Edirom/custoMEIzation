@@ -1,0 +1,8 @@
+MEI_Webservice.xpr
+WebContent/bower_components
+WebContent/css/bootstrap-theme.min.css
+WebContent/css/bootstrap.min.css
+WebContent/fonts/*
+WebContent/js/bootstrap.min.js
+WebContent/js/jquery.min.js
+WebContent/WEB-INF/lib/*.jar

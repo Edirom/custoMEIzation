@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>custoMEIzation</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/main.css" rel="stylesheet" />
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <h1>MEI customization service</h1><span class="path pull-right">Revision 1.1.6 (2014-05-20)</span>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#schema" data-toggle="tab">Generate customized schema</a>
+                        </li>
+                        <li>
+                            <a href="#guidelines" data-toggle="tab">Generate guidelines </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="schema">
+                            <form action="process" method="post" enctype="multipart/form-data" role="form">
+                                <h3>Schema language:</h3>                                
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaFormat" id="relax"
+                                            value="relax" checked="checked" /> RelaxNG </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaFormat" id="xmlSchema"
+                                            value="xmlSchema" /> W3C Schema </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaFormat" id="compiledODD"
+                                            value="compiledODD" /> compiled ODD </label>
+                                </div>
+                                
+                                <h3>MEI source file:</h3>                                
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaSource" id="mei2013"
+                                            value="mei2013" checked="checked" /> MEI 2013 (v2.1.0) <span class="path">/tags/MEI2013_v2.1.0/source/driver.xml</span> </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaSource" id="mei2012"
+                                            value="mei2012" /> MEI 2012 (v2.0.0) <span class="path">/tags/MEI2012_v2.0.0/source/driver.xml</span> </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaSource" id="dev"
+                                            value="dev" /> latest from development branch <span class="path">/trunk/source/driver.xml</span> </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaSource" id="local"
+                                            value="local" /> local canonicalized driver file <span class="path">To canonicalize an XML file use oXygen, open that file, choose <i>Document -&gt; XML Document -&gt; Canonicalize... -&gt; Include</i> from the menu.</span> </label>
+                                </div>
+                                <div class="form-group" id="localFileSelect">
+                                    <input name="source" type="file" size="50" maxlength="100000"/>
+                                </div>
+                                
+                                <h3>MEI customization:</h3>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaCustomization" id="schemaCustomizationMEI2013"
+                                            value="mei2013" /> MEI All from MEI 2013 <span class="path">/tags/MEI2013_v2.1.0/customizations/mei-all.xml</span> </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaCustomization" id="schemaCustomizationMEI2012"
+                                            value="mei2012" /> MEI All from MEI 2012 <span class="path">/tags/MEI2012_v2.0.0/customizations/mei-all.xml</span> </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaCustomization" id="schemaCustomizationBranch"
+                                            value="dev" /> MEI All from development branch <span class="path">/trunk/customizations/mei-all.xml</span> </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="schemaCustomization" id="schemaCustomizationLocal"
+                                            value="local" /> local customization file </label>
+                                </div>
+                                <div class="form-group" id="localCustomizationSelect">
+                                    <input name="customization" type="file" size="50" maxlength="100000"/>
+                                </div>
+                                
+                                <input type="hidden" name="outputType" value="schema"/>
+                                <button type="submit" class="btn btn-default pull-right">Process</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="guidelines">
+                            <form action="process" method="post" enctype="multipart/form-data" role="form">
+                                <h3>Output format:</h3>                                
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="guidelinesFormat" id="html_zip"
+                                            value="html_zip" checked="checked" /> HTML/ZIP </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="guidelinesFormat" id="pdf"
+                                            value="pdf" disabled="disabled" /> PDF </label>
+                                </div>
+                                
+                                <h3>MEI source file:</h3>                                
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="guidelinesSource" id="guidelines_mei2013"
+                                            value="mei2013" checked="checked" /> current MEI 2013 </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="guidelinesSource" id="guidelines_mei2012"
+                                            value="mei2012" /> MEI 2012 </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="guidelinesSource" id="guidelines_dev"
+                                            value="dev" /> latest from developer branch </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="guidelinesSource" id="guidelines_local"
+                                            value="local" /> local source file </label>
+                                </div>
+                                
+                                <div class="form-group" id="localGuidelinesSelect">
+                                    <input name="sourceG" type="file" size="50" maxlength="100000"/>
+                                </div>
+                                
+                                <input type="hidden" name="outputType" value="guidelines"/>
+                                <button type="submit" class="btn btn-default pull-right">Process</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

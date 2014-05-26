@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="dist" name="customization">
+    <target name="dist"> </target>
+    <target name="configure">
+        <!-- Copy JS und CSS -->
+    </target>
+</project>
